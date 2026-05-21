@@ -1,0 +1,239 @@
+{
+  "load_direnv": "shell_hook",
+  "formatter": "auto",
+  "languages": {
+    "CSS": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "HTML": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "JSON": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "Markdown": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "MDX": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "YAML": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "JSONC": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "JavaScript": {
+      "language_servers": ["tsgo", "oxlint", "oxfmt", "cspell"],
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        },
+        {
+          "code_action": "source.fixAll.oxc"
+        }
+      ]
+    },
+    "TypeScript": {
+      "language_servers": ["tsgo", "oxlint", "oxfmt", "cspell"],
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        },
+        {
+          "code_action": "source.fixAll.oxc"
+        }
+      ]
+    },
+    "TSX": {
+      "language_servers": ["tsgo", "oxlint", "oxfmt", "cspell"],
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        },
+        {
+          "code_action": "source.fixAll.oxc"
+        }
+      ]
+    }
+  },
+  "lsp": {
+    "oxlint": {
+      "initialization_options": {
+        "settings": {
+          "disableNestedConfig": false,
+          "fixKind": "safe_fix",
+          "run": "onType",
+          "typeAware": false,
+          "unusedDisableDirectives": "deny"
+        }
+      }
+    },
+    "oxfmt": {
+      "initialization_options": {
+        "settings": {
+          "fmt.experimental": true,
+          "run": "onSave",
+          "typeAware": false,
+          "unusedDisableDirectives": "deny"
+        }
+      }
+    },
+    "tsgo": {
+      "settings": {
+        "typescript": {
+          "preferences": {
+            "quoteStyle": "single",
+            // "importModuleSpecifier": "non-relative",
+            // "importModuleSpecifierEnding": "minimal",
+            "preferTypeOnlyAutoImports": true,
+            "includePackageJsonAutoImports": "off",
+            "autoImportSpecifierExcludeRegexes": [
+              // Keep protocol specifiers out of auto-import suggestions.
+              "^node:.*$",
+              "^cloudflare:.*$"
+            ]
+          },
+          "suggest": {
+            "includeAutomaticOptionalChainCompletions": false,
+            "classMemberSnippets": {
+              "enabled": false
+            },
+            "objectLiteralMethodSnippets": {
+              "enabled": false
+            }
+          }
+        }
+      }
+    },
+    "tailwindcss-language-server": {
+      "settings": {
+        "tailwindCSS": {
+          "emmetCompletions": true
+        }
+      }
+    }
+  },
+  "file_scan_exclusions": [
+    // Version control
+    // ".git",
+
+    // Environment and config files
+    ".direnv",
+    ".envrc",
+    "**/.env",
+    "**/.env.*",
+    ".node-version",
+    ".python-version",
+    ".editorconfig",
+
+    // Editor and IDE
+    ".cursor",
+    ".cursorignore",
+    ".vscode",
+    // ".zed",
+    ".claude",
+    // "AGENTS.md",
+    "CLAUDE.md",
+    ".mcp.json",
+
+    // Build and dependency tools
+    "**/node_modules",
+    "**/pnpm-lock.yaml",
+    // Build output
+    "**/build",
+    "**/dist",
+    "**/.wrangler",
+    "**/wrangler.*",
+    "coverage",
+    "**/*.tsbuildinfo",
+
+    // Configuration files
+    "cspell.json",
+    // "**/.oxlintrc.json",
+    // "**/.oxfmtrc.json",
+    "flake.*",
+    "lefthook.yml",
+
+    // Special
+    ".DS_Store",
+    ".obsidian"
+    // "README.md"
+  ]
+}

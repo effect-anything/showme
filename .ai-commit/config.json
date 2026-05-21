@@ -1,0 +1,17 @@
+{
+  "scopes": [
+    {
+      "name": "changeset",
+      "description": "files under .changeset used for change logging and config (e.g., .changeset/config.json, README in changeset)."
+    },
+    {
+      "name": "src",
+      "description": "source code implementing the library (e.g., src/index.ts, src/formatter.ts, src/dts-generator.ts, etc.)."
+    },
+    {
+      "name": "tests",
+      "description": "test suites and test configurations (e.g., tests/index.test.ts, vitest.config.ts, tsconfig for tests)."
+    }
+  ],
+  "hook": ["conventional"]
+}

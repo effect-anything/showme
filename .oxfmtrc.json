@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": [
+    ".git",
+    ".references",
+    ".opencode",
+    ".direnv",
+    ".lalph",
+    ".specs",
+    ".jj",
+    "dist",
+    "node_modules",
+    "bun.lock",
+    "flake.lock"
+  ]
+}

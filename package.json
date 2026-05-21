@@ -1,0 +1,96 @@
+{
+  "name": "@effect-x/showme",
+  "version": "0.1.0",
+  "description": "A TypeScript-aware read tool that shows interfaces, types, and signatures instead of full source code",
+  "keywords": [
+    "cli",
+    "code-context",
+    "declarations",
+    "dts",
+    "effect",
+    "signatures",
+    "tsgo",
+    "typescript"
+  ],
+  "homepage": "https://github.com/effect-x/showme#readme",
+  "bugs": {
+    "url": "https://github.com/effect-x/showme/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/effect-x/showme.git"
+  },
+  "bin": {
+    "showme": "./dist/bin.js"
+  },
+  "files": [
+    "dist",
+    "src",
+    "skill",
+    "README.md",
+    "LICENSE"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./dist/bin.js",
+    "./*": "./*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "prepare": "lefthook install && effect-tsgo patch",
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "lint": "oxlint .",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
+    "typecheck": "tsgo --noEmit",
+    "test": "vitest run",
+    "check": "bun run lint && bun run format:check && bun run typecheck && bun run test && bun run build",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish",
+    "prepack": "bun run build",
+    "pack:check": "npm pack --dry-run"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@changesets/cli": "^2.31.0",
+    "@effect/ai-openai": "^4.0.0-beta.68",
+    "@effect/platform-node": "^4.0.0-beta.68",
+    "@effect/tsgo": "^0.7.4",
+    "@effect/vitest": "^4.0.0-beta.68",
+    "@types/node": "^25.9.0",
+    "@types/picomatch": "^4.0.3",
+    "@typescript/native-preview": "7.0.0-dev.20260519.1",
+    "effect": "^4.0.0-beta.68",
+    "lefthook": "^2.1.7",
+    "oxfmt": "^0.51.0",
+    "oxlint": "^1.66.0",
+    "picomatch": "^4.0.4",
+    "tsdown": "^0.22.0",
+    "vitest": "^4.1.6"
+  },
+  "engines": {
+    "bun": ">=1.3.10",
+    "node": ">=24"
+  },
+  "packageManager": "bun@1.3.14",
+  "inlinedDependencies": {
+    "@effect/platform-node": "4.0.0-beta.70",
+    "@effect/platform-node-shared": "4.0.0-beta.70",
+    "effect": "4.0.0-beta.70",
+    "ini": "7.0.0",
+    "picomatch": "4.0.4",
+    "toml": "4.1.1"
+  },
+  "knip": {
+    "ignoreDependencies": [
+      "@effect/language-service"
+    ]
+  }
+}
