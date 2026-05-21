@@ -572,9 +572,7 @@ const commandConfig = {
     Flag.atMost(100),
     Flag.map(parseList),
     Flag.withDefault([] as Array<string>),
-    Flag.withDescription(
-      "File path filter glob(s), repeatable or comma-separated; matches generated source paths",
-    ),
+    Flag.withDescription("File path filter glob(s), repeatable; matches generated source paths"),
   ),
   output: Flag.file("output", { mustExist: false }).pipe(
     Flag.optional,
