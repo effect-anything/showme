@@ -12,14 +12,14 @@
     "tsgo",
     "typescript"
   ],
-  "homepage": "https://github.com/effect-x/showme#readme",
+  "homepage": "https://github.com/effect-anything/showme#readme",
   "bugs": {
-    "url": "https://github.com/effect-x/showme/issues"
+    "url": "https://github.com/effect-anything/showme/issues"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/effect-x/showme.git"
+    "url": "git+https://github.com/effect-anything/showme.git"
   },
   "bin": {
     "showme": "./dist/bin.js"
@@ -27,7 +27,7 @@
   "files": [
     "dist",
     "src",
-    "skill",
+    "showme",
     "README.md",
     "LICENSE"
   ],

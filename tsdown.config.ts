@@ -19,7 +19,7 @@ export default defineConfig({
   },
   treeshake: true,
   target: ["node22", "es2024"],
-  copy: ["skill"],
+  copy: ["skills"],
   ignoreWatch: [
     ".git",
     ".repo",
