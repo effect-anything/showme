@@ -1,10 +1,10 @@
 # @effect-x/showme
 
-A TypeScript-aware read tool that shows interfaces, types, and signatures instead of full source code.
+A TypeScript preflight and architecture-alignment tool that shows interfaces, types, signatures, exports, and wiring instead of full source code.
 
-`showme` is a smarter way to read TypeScript projects. Instead of dumping implementation files, it extracts the interface layer — types, signatures, imports, and exports — so you can understand what code does before diving into how it does it.
+`showme` is a smarter way to work in TypeScript projects. Instead of dumping implementation files, it extracts the interface layer — types, signatures, imports, exports, services, and module boundaries — so you can plan, edit, refactor, and review against the API surface before diving into how the code works.
 
-Use it before reading source files, reviewing a codebase, or preparing compact context for an AI coding agent.
+Use it before major planning, multi-file edits, refactors, architecture explanations, or large source reads. Re-run it after substantial changes to verify that signatures, exports, and boundaries still match the intended design.
 
 Typical flow:
 
@@ -14,11 +14,14 @@ showme src --kind signatures
 
 Then use the API surface to decide which files actually need deeper reading.
 
+Default posture: narrow by source path first, then by `--kind`, then by `--filter` only if needed.
+
 ## When to use
 
-- Exploring an unfamiliar TypeScript repo before reading full source files.
-- Understanding project architecture, service boundaries, and dependencies.
-- Reviewing services, layers, schemas, types, or function signatures.
+- Preflighting a TypeScript task before planning, editing, or refactoring.
+- Understanding project architecture, service boundaries, dependencies, layers, and exports.
+- Reviewing services, schemas, signatures, types, or public API shape before reading implementation.
+- Re-checking architecture after substantial changes so later edits stay aligned.
 - Preparing compact context before editing, explaining, or handing code to an agent.
 - Summarizing a package API without getting lost in implementation details.
 
@@ -44,6 +47,35 @@ Or run without installing:
 ```bash
 npx @effect-x/showme --help
 ```
+
+### Installing as an agent skill
+
+If you use opencode or another agent framework with local skills, copy the
+skill from this repo into your agent skill directory. Treat the copy under this
+repo as the source of truth, then sync it into your local agent skills after
+each change.
+
+For example:
+
+```bash
+mkdir -p ~/.agents/skills/architecture-preflight
+cp skills/architecture-preflight/SKILL.md ~/.agents/skills/architecture-preflight/SKILL.md
+```
+
+To improve invocation frequency, also add a short hint to your project's
+`AGENTS.md` telling the agent to use `architecture-preflight` before major
+TypeScript planning, multi-file edits, refactors, architecture explanations, or
+large source reads, and to rerun it after substantial changes.
+
+This matters because many agent systems initially see only a skill's `name` and
+`description`. A matching hint in `AGENTS.md` significantly increases the chance
+that the skill is loaded early and reused throughout the task.
+
+> ## TypeScript Preflight Rule
+>
+> - Before any TypeScript planning, multi-file edit, refactor, or architecture question, load the `architecture-preflight` skill first. Re-run it after substantial changes to verify alignment.
+> - Trigger on: definitions, types, signatures, exports, services, layers, schemas, wiring, module boundaries, or broad source reading.
+> - Posture: inspect declarations/signatures first, then narrow to implementation files only as needed.
 
 ## Usage
 
