@@ -28,7 +28,7 @@ Sources are files and/or folders. Defaults to current directory.
 
 ## Kinds
 
-`--kind` selects what to extract (repeatable, comma-separated):
+`--kind` selects what to extract (repeatable):
 
 - `all` (default) — everything below
 - `declarations` — raw `.d.ts` output
