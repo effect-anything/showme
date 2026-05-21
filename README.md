@@ -93,15 +93,15 @@ showme src --line
 
 ## Flags
 
-| Flag                | Description                                                                                                                                                        |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `--kind <kind>`     | Structure kind(s), repeatable or comma-separated. Supported values: `all`, `declarations`, `signatures`, `interfaces`, `types`, `variables`, `imports`, `exports`. |
-| `--filter <glob>`   | File path filter glob(s), repeatable or comma-separated.                                                                                                           |
-| `--output <file>`   | Write output to a file instead of stdout.                                                                                                                          |
-| `--line`            | Emit source line comments before entries when source maps are available.                                                                                           |
-| `--format <format>` | Output format: `plain` or `markdown`.                                                                                                                              |
-| `--help`            | Show help information.                                                                                                                                             |
-| `--version`         | Show package version.                                                                                                                                              |
+| Flag                | Description                                                                                                                                     |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--kind <kind>`     | Structure kind(s), repeatable. Supported values: `all`, `declarations`, `signatures`, `interfaces`, `types`, `variables`, `imports`, `exports`. |
+| `--filter <glob>`   | File path filter glob(s), repeatable.                                                                                                           |
+| `--output <file>`   | Write output to a file instead of stdout.                                                                                                       |
+| `--line`            | Emit source line comments before entries when source maps are available.                                                                        |
+| `--format <format>` | Output format: `plain` or `markdown`.                                                                                                           |
+| `--help`            | Show help information.                                                                                                                          |
+| `--version`         | Show package version.                                                                                                                           |
 
 ## How it works
 
