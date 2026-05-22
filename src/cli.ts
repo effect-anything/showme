@@ -626,4 +626,3 @@ export const cli = Command.make("showme", commandConfig, (config) => {
 export const main = Command.run(cli, { version: PackageJson.version }).pipe(
   Effect.provide(NodeServices.layer),
 );
-[];
