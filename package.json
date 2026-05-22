@@ -1,6 +1,6 @@
 {
   "name": "@effect-x/showme",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A TypeScript-aware read tool that shows interfaces, types, and signatures instead of full source code",
   "keywords": [
     "cli",
