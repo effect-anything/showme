@@ -604,7 +604,7 @@ export const cli = Command.make("showme", commandConfig, (config) => {
   return runShowme(options);
 }).pipe(
   Command.withDescription(
-    "Generate compiler-backed DTS declarations with tsgo and filter them into compact code context.",
+    "Generate compiler-backed DTS declarations with tsc and filter them into compact code context.",
   ),
   Command.withExamples([
     {

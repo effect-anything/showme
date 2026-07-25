@@ -10,14 +10,14 @@ import type { DtsGenerationResult, DtsResult } from "./core-types.ts";
 import { ShowmeError } from "./core-types.ts";
 import { buildSourceLineMap } from "./source-map.ts";
 
-const getTsgoPath = (): string => {
-  const binary = process.env["TSGO"];
+const getTscPath = (): string => {
+  const binary = process.env["TSC"];
   if (binary != null && binary.length > 0) return binary;
   return "npx";
 };
 
-const getTsgoArgs = (tsgoPath: string): ReadonlyArray<string> => {
-  if (tsgoPath === "npx") return ["tsgo"];
+const getTscArgs = (tscPath: string): ReadonlyArray<string> => {
+  if (tscPath === "npx") return ["tsc"];
   return [];
 };
 
@@ -67,7 +67,7 @@ const collectDts: (
             exists
               ? fs.readFileString(mapPath).pipe(
                   Effect.map((mapContent) => buildSourceLineMap(content, mapContent)),
-                  Effect.catch(() => Effect.succeed(undefined)),
+                  Effect.orElseSucceed(() => undefined),
                 )
               : Effect.succeed(undefined),
           ),
@@ -81,7 +81,7 @@ const collectDts: (
   },
 );
 
-const formatTsgoCause = (cause: unknown): string => {
+const formatTscCause = (cause: unknown): string => {
   if (cause instanceof Error) {
     const errorWithOutput = cause as Error & {
       readonly stdout?: unknown;
@@ -144,9 +144,9 @@ export class DtsGenerator extends Context.Service<
       const start = yield* Clock.currentTimeMillis;
       yield* Effect.try({
         try: () => {
-          const tsgoPath = getTsgoPath();
+          const tscPath = getTscPath();
           const args = [
-            ...getTsgoArgs(tsgoPath),
+            ...getTscArgs(tscPath),
             "--noEmit",
             "false",
             "--declaration",
@@ -163,11 +163,11 @@ export class DtsGenerator extends Context.Service<
             "--skipLibCheck",
             ...(hasTsconfig ? ["-p", tsconfig] : []),
           ];
-          execFileSync(tsgoPath, args, { cwd: workspaceRoot, stdio: "pipe", encoding: "utf-8" });
+          execFileSync(tscPath, args, { cwd: workspaceRoot, stdio: "pipe", encoding: "utf-8" });
         },
         catch: (cause) =>
           new ShowmeError({
-            message: `tsgo declaration generation failed for ${rootDir}${hasTsconfig ? ` using ${tsconfig}` : ""}\n${formatTsgoCause(cause)}`,
+            message: `tsc declaration generation failed for ${rootDir}${hasTsconfig ? ` using ${tsconfig}` : ""}\n${formatTscCause(cause)}`,
             cause,
           }),
       });

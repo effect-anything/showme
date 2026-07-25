@@ -156,6 +156,10 @@
       }
     },
     "tsgo": {
+      "binary": {
+        "path": "./node_modules/.bin/tsc",
+        "arguments": ["--lsp", "--stdio"]
+      },
       "settings": {
         "typescript": {
           "preferences": {

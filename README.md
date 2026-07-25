@@ -138,14 +138,14 @@ showme src --line
 ## How it works
 
 1. Resolve source paths to project scopes and `tsconfig` files.
-2. Run `tsgo` with declaration-only output into `node_modules/.cache/showme-dts`.
+2. Run `tsc` with declaration-only output into `node_modules/.cache/showme-dts`.
 3. Read generated `.d.ts` files and declaration maps.
 4. Filter by target paths and `--filter` globs.
 5. Format the requested structure kinds.
 
-You can override the TypeScript Go binary with the `TSGO` environment variable, for example:
+You can override the TypeScript Go binary with the `TSC` environment variable, for example:
 
-`TSGO=/path/to/tsgo showme src`
+`TSC=/path/to/tsc showme src`
 
 ## Requirements
 
@@ -167,7 +167,7 @@ Useful scripts:
 
 - `bun run dev` - build in watch mode.
 - `bun run test` - run tests.
-- `bun run typecheck` - run `tsgo --noEmit`.
+- `bun run typecheck` - run `tsc --noEmit`.
 - `bun run format` - format files with `oxfmt`.
 - `bun run pack:check` - inspect the npm tarball with `npm pack --dry-run`.
 
